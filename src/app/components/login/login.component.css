@@ -1,0 +1,11 @@
+ .login-card-container {
+     position: absolute;
+     top: calc(28%);
+     left: calc(50% - 10%);
+     width: 20%;
+ }
+ 
+ .login-form-container .input-username,
+ .login-form-container .input-password {
+     width: 100%;
+ }
