@@ -1,0 +1,14 @@
+.mainNavContainer {
+    width: 100%;
+    height: 100%;
+}
+
+.mainNavContainer md-sidenav {
+    max-width: 300px;
+    min-width: 200px;
+}
+
+.contentContainer {
+    padding: 20px;
+    margin: auto;
+}

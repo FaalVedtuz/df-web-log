@@ -1,8 +1,37 @@
-<h1>{{ LoginComponent.user }}</h1>
-<nav>
-    <ul>
-        <li><a routerLink="/dashboard" routerLinkActive="active">Dashboard</a></li>
-        <li><a routerLink="/dashboard" routerLinkActive="active">Logs</a></li>
-        <li><a routerLink="/dashboard" routerLinkActive="active">User Account</a></li>
-    </ul>
-</nav>
+<!-- <h1>{{ LoginComponent.user }}</h1> -->
+<md-sidenav-container class="mainNavContainer">
+    <md-sidenav #sidenav mode="side" opened="true">
+        <h1>Rondina, J.</h1>
+        <nav>
+            <ul>
+                <li><a class="dashMenu" routerLink="/dashboard" routerLinkActive="active">Dashboard</a></li>
+                <li><a class="dashMenu" routerLink="/" routerLinkActive="active">Logs</a></li>
+            </ul>
+        </nav>
+    </md-sidenav>
+
+    <div class="contentContainer">
+        <md-card>
+            <md-card-title>
+                User Logs
+            </md-card-title>
+            <md-card-content>
+                <p>Lorem ipsum dolor sit amet, pede a libero aenean phasellus, lectus metus sint ut risus, fusce vel in pellentesque. Nisl rutrum etiam morbi consectetuer tempor magna, aenean nullam nunc id, neque vivamus interdum sociis nulla scelerisque
+                    sem, dolor id wisi turpis magna aliquam magna. Risus accumsan hac eget etiam donec sed, senectus erat mattis quam, tempor vel urna occaecat cras, metus urna augue nec at. Et morbi amet dui praesent, nec eu at, ligula ipsum dui sollicitudin,
+                    quis nisl massa viverra ligula, mauris fermentum orci arcu enim fringilla. Arcu erat nulla in aenean lacinia ullamcorper, urna ante nam et sagittis, tristique vehicula nibh ipsum vivamus, proin proin. Porta commodo nibh quis libero
+                    amet. Taciti dui, sapien consectetuer.</p>
+            </md-card-content>
+        </md-card>
+
+
+        <p>Lorem ipsum dolor sit amet, pede a libero aenean phasellus, lectus metus sint ut risus, fusce vel in pellentesque. Nisl rutrum etiam morbi consectetuer tempor magna, aenean nullam nunc id, neque vivamus interdum sociis nulla scelerisque sem, dolor
+            id wisi turpis magna aliquam magna. Risus accumsan hac eget etiam donec sed, senectus erat mattis quam, tempor vel urna occaecat cras, metus urna augue nec at. Et morbi amet dui praesent, nec eu at, ligula ipsum dui sollicitudin, quis nisl
+            massa viverra ligula, mauris fermentum orci arcu enim fringilla. Arcu erat nulla in aenean lacinia ullamcorper, urna ante nam et sagittis, tristique vehicula nibh ipsum vivamus, proin proin. Porta commodo nibh quis libero amet. Taciti dui,
+            sapien consectetuer.</p>
+        <p>Lorem ipsum dolor sit amet, pede a libero aenean phasellus, lectus metus sint ut risus, fusce vel in pellentesque. Nisl rutrum etiam morbi consectetuer tempor magna, aenean nullam nunc id, neque vivamus interdum sociis nulla scelerisque sem, dolor
+            id wisi turpis magna aliquam magna. Risus accumsan hac eget etiam donec sed, senectus erat mattis quam, tempor vel urna occaecat cras, metus urna augue nec at. Et morbi amet dui praesent, nec eu at, ligula ipsum dui sollicitudin, quis nisl
+            massa viverra ligula, mauris fermentum orci arcu enim fringilla. Arcu erat nulla in aenean lacinia ullamcorper, urna ante nam et sagittis, tristique vehicula nibh ipsum vivamus, proin proin. Porta commodo nibh quis libero amet. Taciti dui,
+            sapien consectetuer.</p>
+    </div>
+
+</md-sidenav-container>

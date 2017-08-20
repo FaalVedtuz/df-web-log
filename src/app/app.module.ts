@@ -4,7 +4,7 @@ import { RouterModule, Routes } from '@angular/router';
 
 /* materialize imports */
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MdCardModule, MdInputModule, MdButtonModule } from '@angular/material';
+import { MdCardModule, MdInputModule, MdButtonModule, MdMenuModule, MdSidenavModule, MdIconModule, MdToolbarModule } from '@angular/material';
 /* ---------------------------*/
 
 /* flex layout module imports */
@@ -49,7 +49,11 @@ const navigationRoutes: Routes = [
     FlexLayoutModule,
     MdCardModule,
     MdInputModule,
-    MdButtonModule
+    MdButtonModule,
+    MdMenuModule,
+    MdSidenavModule,
+    MdIconModule,
+    MdToolbarModule
   ],
   providers: [],
   bootstrap: [AppComponent]
