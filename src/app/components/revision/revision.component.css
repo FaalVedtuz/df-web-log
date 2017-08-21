@@ -1,0 +1,21 @@
+a {
+    text-decoration: none !important;
+}
+
+.revision-wrapper {
+    background-color: #f44336;
+    color: #fafafa;
+}
+
+.revision-wrapper md-card-content {
+    display: flex;
+    align-items: center;
+}
+
+.revision-wrapper md-card-content div {
+    flex-direction: row;
+}
+
+.revision-desc {
+    flex-grow: 1;
+}

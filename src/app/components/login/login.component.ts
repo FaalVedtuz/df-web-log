@@ -15,14 +15,14 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {
     this.user = 'Jayson';
-    this.password = "angular";
+    this.password = 'angular';
   }
 
-  checkUser(userValue:string, passwordValue:string){
-    if(this.user === userValue && this.password === passwordValue){
-      alert("Its a match");
-    }else{
-      alert("Wrong Username/password");
+  checkUser(userValue: string, passwordValue: string) {
+        if (this.user === userValue && this.password === passwordValue){
+      alert('Its a match');
+    }else {
+      alert('Wrong Username/password');
     }
     return false;
   }

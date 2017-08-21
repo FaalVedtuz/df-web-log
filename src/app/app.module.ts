@@ -2,9 +2,10 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule, Routes } from '@angular/router';
 
-/* materialize imports */
+/* Angular Material imports */
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MdCardModule, MdInputModule, MdButtonModule, MdMenuModule, MdSidenavModule, MdIconModule, MdToolbarModule } from '@angular/material';
+import { MdCardModule, MdInputModule, MdButtonModule, MdMenuModule, MdSidenavModule, MdIconModule } from '@angular/material';
+import { MdToolbarModule } from '@angular/material';
 /* ---------------------------*/
 
 /* flex layout module imports */
@@ -15,6 +16,7 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from '././components/login/login.component';
 import { NavigationComponent } from './components/navigation/navigation.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { RevisionComponent } from './components/revision/revision.component';
 
 
 const navigationRoutes: Routes = [
@@ -38,7 +40,8 @@ const navigationRoutes: Routes = [
     AppComponent,
     LoginComponent,
     NavigationComponent,
-    DashboardComponent
+    DashboardComponent,
+    RevisionComponent
   ],
   imports: [
     RouterModule.forRoot(
