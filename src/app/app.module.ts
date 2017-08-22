@@ -17,6 +17,7 @@ import { LoginComponent } from '././components/login/login.component';
 import { NavigationComponent } from './components/navigation/navigation.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { RevisionComponent } from './components/revision/revision.component';
+import { ReminderComponent } from './components/reminder/reminder.component';
 
 
 const navigationRoutes: Routes = [
@@ -41,7 +42,8 @@ const navigationRoutes: Routes = [
     LoginComponent,
     NavigationComponent,
     DashboardComponent,
-    RevisionComponent
+    RevisionComponent,
+    ReminderComponent
   ],
   imports: [
     RouterModule.forRoot(

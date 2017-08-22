@@ -1,0 +1,8 @@
+md-card-actions {
+    display: flex;
+    align-items: center;
+}
+
+.div-spacer {
+    flex-grow: 1;
+}
