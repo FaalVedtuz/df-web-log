@@ -1,3 +1,4 @@
+import { RemindersDataService } from './service/reminders-data.service';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule, Routes } from '@angular/router';
@@ -18,6 +19,7 @@ import { NavigationComponent } from './components/navigation/navigation.componen
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { RevisionComponent } from './components/revision/revision.component';
 import { ReminderComponent } from './components/reminder/reminder.component';
+import { ReminderMainComponent } from './components/reminder-main/reminder-main.component';
 
 
 const navigationRoutes: Routes = [
@@ -30,10 +32,19 @@ const navigationRoutes: Routes = [
     component: DashboardComponent
   },
   {
+    path: 'reminder-main',
+    component: ReminderMainComponent
+  },
+  {
     path: '',
-    redirectTo: '/login',
+    redirectTo: '/dashboard',
     pathMatch: 'full'
   }
+  // {
+  //   path: '',
+  //   redirectTo: '/login',
+  //   pathMatch: 'full'
+  // }
 ];
 
 @NgModule({
@@ -43,7 +54,8 @@ const navigationRoutes: Routes = [
     NavigationComponent,
     DashboardComponent,
     RevisionComponent,
-    ReminderComponent
+    ReminderComponent,
+    ReminderMainComponent
   ],
   imports: [
     RouterModule.forRoot(
@@ -60,7 +72,7 @@ const navigationRoutes: Routes = [
     MdIconModule,
     MdToolbarModule
   ],
-  providers: [],
+  providers: [RemindersDataService],
   bootstrap: [AppComponent]
 })
 export class PizzaPartyAppModule { }

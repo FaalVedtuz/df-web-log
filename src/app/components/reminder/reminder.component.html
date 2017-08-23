@@ -2,22 +2,10 @@
     <md-card-title>
         Reminders
     </md-card-title>
-    <md-card-content>
-        <md-card>
-            <md-card-content>
-                <h3>Reminder Title..</h3>
-                <p>Some things to buy.</p>
-                <ul>
-                    <li>Buy an Egg</li>
-                    <li>Buy a Milk</li>
-                    <li>Cook Omelet</li>
-                </ul>
-            </md-card-content>
-            <md-card-actions>
-                <div class="div-spacer"></div>
-                <button md-button>DONE</button>
-                <button md-button>VIEW</button>
-            </md-card-actions>
-        </md-card>
+    <md-card-subtitle>
+        Use this as your daily sticky note.
+    </md-card-subtitle>
+    <md-card-content *ngFor="let reminder of remindersTitle">
+        <h3><a href="#">{{ reminder.title }}</a></h3>
     </md-card-content>
 </md-card>

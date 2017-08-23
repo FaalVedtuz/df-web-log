@@ -1,4 +1,15 @@
 <app-navigation></app-navigation>
-<div class="container" fxLayout.lt-lg="column" fxLayoutAlign="center">
-    <router-outlet></router-outlet>
+<span class="top-spacer"></span>
+<div fxLayout="row" fxLayout.lt-lg="column" fxLayoutAlign="center">
+    <div fxFlex="10"></div>
+    <md-card fxFlex="1 1 auto">
+        <md-toolbar color="primary" class="mat-elevation-z7">
+            <span><button md-button routerLink="/dashboard" routerLinkActive="active">HOME</button></span>
+            <span><button md-button>TASKS</button></span>
+            <span><button md-button routerLink="/reminder-main" routerLinkActive="active">REMINDERS</button></span>
+        </md-toolbar>
+        <br/>
+        <router-outlet></router-outlet>
+    </md-card>
+    <div fxFlex="10"></div>
 </div>
