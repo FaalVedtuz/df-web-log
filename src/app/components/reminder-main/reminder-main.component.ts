@@ -1,6 +1,9 @@
+
 import { Component, OnInit, Input } from '@angular/core';
+import { MdDialog, MdDialogRef } from '@angular/material';
 
 import { RemindersDataService } from './../../service/reminders-data.service';
+import { ReminderDialogComponent } from './../../dialog/reminder-dialog/reminder-dialog.component';
 
 export class Reminders {
   title: string;
@@ -15,13 +18,23 @@ export class Reminders {
 
 export class ReminderMainComponent implements OnInit {
 
-  reminderTitle: any[];
+  reminders: any[];
   reminderDetail: any[];
+  reminderIndex: number;
 
-  constructor(private reminderData: RemindersDataService) { }
+  constructor(private reminderData: RemindersDataService,
+    public dialog: MdDialog) { }
 
   ngOnInit() {
-    this.reminderTitle = this.reminderData.getTitle();
-    this.reminderDetail = this.reminderData.getDescription();
+    this.reminders = this.reminderData.reminders;
+  }
+
+  openDialog(reminderIndex) {
+    const dialogRef = this.dialog.open(ReminderDialogComponent, {
+      data: this.reminders[reminderIndex],
+      height: '320px',
+      width: '600px',
+      disableClose: true
+    });
   }
 }

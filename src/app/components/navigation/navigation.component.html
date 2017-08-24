@@ -1,7 +1,10 @@
 <md-toolbar class="nav-wrapper mat-elevation-z8">
     <span class="brand-logo"><a routerLink="/dashboard ">Personiv</a></span>
+    <span><button md-button routerLink="/dashboard" routerLinkActive="active">HOME</button></span>
+    <span><button md-button>TASKS</button></span>
+    <span><button md-button routerLink="/reminder-main" routerLinkActive="active">REMINDERS</button></span>
     <div class="nav-link-wrapper">
-        <span><a class="user-account" [mdMenuTriggerFor]="userMenu" md-button routerLink="/dashboard" routerLinkActive="active"><md-icon>account_circle</md-icon> RONDINA </a></span>
+        <span><a class="user-account" [mdMenuTriggerFor]="userMenu" md-button routerLink="/dashboard"><md-icon>account_circle</md-icon> RONDINA </a></span>
         <md-menu #userMenu="mdMenu">
             <button md-menu-item>Settings</button>
             <button md-menu-item>Logout</button>

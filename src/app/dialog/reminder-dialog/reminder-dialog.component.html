@@ -1,0 +1,13 @@
+<div fxLayout="column" fxLayoutAlign="center" class="mat-typography">
+    <md-input-container>
+        <input type="text" mdInput placeholder="Title" [value]="data.title">
+    </md-input-container>
+    <md-input-container>
+        <textarea type="text" mdInput placeholder="Description">{{ data.description }}</textarea>
+    </md-input-container>
+</div>
+<div fxLayout="row">
+    <span fxFlex="1 1 auto"></span>
+    <button md-button>SAVE</button>
+    <button md-button (click)="closeDialog()">CLOSE</button>
+</div>

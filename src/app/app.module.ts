@@ -6,7 +6,7 @@ import { RouterModule, Routes } from '@angular/router';
 /* Angular Material imports */
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MdCardModule, MdInputModule, MdButtonModule, MdMenuModule, MdSidenavModule, MdIconModule } from '@angular/material';
-import { MdToolbarModule } from '@angular/material';
+import { MdToolbarModule, MdDialogModule } from '@angular/material';
 /* ---------------------------*/
 
 /* flex layout module imports */
@@ -20,6 +20,7 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { RevisionComponent } from './components/revision/revision.component';
 import { ReminderComponent } from './components/reminder/reminder.component';
 import { ReminderMainComponent } from './components/reminder-main/reminder-main.component';
+import { ReminderDialogComponent } from './dialog/reminder-dialog/reminder-dialog.component';
 
 
 const navigationRoutes: Routes = [
@@ -55,7 +56,8 @@ const navigationRoutes: Routes = [
     DashboardComponent,
     RevisionComponent,
     ReminderComponent,
-    ReminderMainComponent
+    ReminderMainComponent,
+    ReminderDialogComponent
   ],
   imports: [
     RouterModule.forRoot(
@@ -70,7 +72,11 @@ const navigationRoutes: Routes = [
     MdMenuModule,
     MdSidenavModule,
     MdIconModule,
-    MdToolbarModule
+    MdToolbarModule,
+    MdDialogModule
+  ],
+  entryComponents: [
+    ReminderDialogComponent
   ],
   providers: [RemindersDataService],
   bootstrap: [AppComponent]
