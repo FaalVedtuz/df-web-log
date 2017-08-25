@@ -1,6 +1,7 @@
+import { CreateReminderDialogComponent } from './../../dialog/create-reminder-dialog/create-reminder-dialog.component';
 
 import { Component, OnInit, Input } from '@angular/core';
-import { MdDialog, MdDialogRef } from '@angular/material';
+import { MdDialog } from '@angular/material';
 
 import { RemindersDataService } from './../../service/reminders-data.service';
 import { ReminderDialogComponent } from './../../dialog/reminder-dialog/reminder-dialog.component';
@@ -33,6 +34,14 @@ export class ReminderMainComponent implements OnInit {
     const dialogRef = this.dialog.open(ReminderDialogComponent, {
       data: this.reminders[reminderIndex],
       height: '320px',
+      width: '600px',
+      disableClose: true
+    });
+  }
+
+  createReminderDialog() {
+    const createDialogRef = this.dialog.open(CreateReminderDialogComponent, {
+      height: '360px',
       width: '600px',
       disableClose: true
     });

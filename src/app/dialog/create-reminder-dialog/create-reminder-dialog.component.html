@@ -1,0 +1,17 @@
+<div class="reminder-buttons" fxLayoutGap="10px">
+    <button md-icon-button (click)="closeDialog()"><md-icon>close</md-icon></button>
+</div>
+<div fxLayout="column" fxLayoutAlign="center" class="mat-typography">
+    <div fxLayout="column">
+        <md-input-container color="primary">
+            <input type="text" mdInput placeholder="Title">
+        </md-input-container>
+        <md-input-container color="primary">
+            <textarea type="text" rows="5" mdInput placeholder="Description"></textarea>
+        </md-input-container>
+    </div>
+    <md-dialog-actions fxLayoutAlign="end end">
+        <button md-fab (click)="saveReminder()"><md-icon>save</md-icon></button>
+    </md-dialog-actions>
+
+</div>

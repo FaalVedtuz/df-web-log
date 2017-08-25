@@ -10,14 +10,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ReminderDialogComponent implements OnInit {
 
+  reminderEdit: Boolean;
   constructor(public dialogRef: MdDialogRef<ReminderDialogComponent>,
               @Inject(MD_DIALOG_DATA) public data: string ) { }
 
   ngOnInit() {
+    this.reminderEdit = false;
   }
 
   closeDialog() {
     this.dialogRef.close();
   }
 
+  editReminder() {
+    this.reminderEdit = true;
+  }
 }

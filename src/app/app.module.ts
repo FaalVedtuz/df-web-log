@@ -21,6 +21,7 @@ import { RevisionComponent } from './components/revision/revision.component';
 import { ReminderComponent } from './components/reminder/reminder.component';
 import { ReminderMainComponent } from './components/reminder-main/reminder-main.component';
 import { ReminderDialogComponent } from './dialog/reminder-dialog/reminder-dialog.component';
+import { CreateReminderDialogComponent } from './dialog/create-reminder-dialog/create-reminder-dialog.component';
 
 
 const navigationRoutes: Routes = [
@@ -57,7 +58,8 @@ const navigationRoutes: Routes = [
     RevisionComponent,
     ReminderComponent,
     ReminderMainComponent,
-    ReminderDialogComponent
+    ReminderDialogComponent,
+    CreateReminderDialogComponent
   ],
   imports: [
     RouterModule.forRoot(
@@ -76,7 +78,8 @@ const navigationRoutes: Routes = [
     MdDialogModule
   ],
   entryComponents: [
-    ReminderDialogComponent
+    ReminderDialogComponent,
+    CreateReminderDialogComponent
   ],
   providers: [RemindersDataService],
   bootstrap: [AppComponent]

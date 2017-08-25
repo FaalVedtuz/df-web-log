@@ -12,7 +12,8 @@ export class RemindersDataService {
   reminders: Reminders[] = [
     {
       title: 'First Note',
-      description: 'This is a description for the first note.'
+      // tslint:disable-next-line:max-line-length
+      description: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Fuga natus nemo eligendi at temporibus suscipit architecto maiores deserunt modi commodi obcaecati nobis, quo, vero corporis amet veniam doloremque placeat! Dolore!'
     },
     {
       title: 'Second Note',
