@@ -46,4 +46,8 @@ export class ReminderMainComponent implements OnInit {
       disableClose: true
     });
   }
+
+  deleteReminder(reminderIndex: number) {
+    this.reminderData.deleteReminder(reminderIndex);
+  }
 }

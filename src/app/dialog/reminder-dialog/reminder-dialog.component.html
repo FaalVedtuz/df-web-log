@@ -1,10 +1,6 @@
 <div fxLayout="row">
     <div class="reminder-menu" fxLayoutAlign="start start" fxFlex="1 1 auto">
-        <md-menu #reminderMenu="mdMenu">
-            <button md-menu-item (click)="editReminder()"><md-icon>edit</md-icon>EDIT</button>
-            <button md-menu-item><md-icon>delete</md-icon>DELETE</button>
-        </md-menu>
-        <button md-icon-button [mdMenuTriggerFor]="reminderMenu"><md-icon>more_vert</md-icon></button>
+        <button md-icon-button (click)="editReminder()"><md-icon>edit</md-icon></button>
     </div>
     <div class="reminder-buttons" fxLayoutGap="10px">
         <button *ngIf="reminderEdit" md-button>SAVE</button>
@@ -12,18 +8,20 @@
     </div>
 </div>
 <br />
-<div fxLayout="column" fxLayoutAlign="center" class="mat-typography">
-    <ng-template #showReminder>
-        <h2>{{ data.title }}</h2>
-        <p class="mat-body-1">{{ data.description }}</p>
-        <br />
-    </ng-template>
-    <div fxLayout="column" *ngIf="reminderEdit; else showReminder">
-        <md-input-container color="primary">
-            <input type="text" mdInput placeholder="Title" [value]="data.title">
-        </md-input-container>
-        <md-input-container color="primary">
-            <textarea type="text" rows="5" mdInput placeholder="Description">{{ data.description }}</textarea>
-        </md-input-container>
+<md-dialog-content>
+    <div fxLayout="column" fxLayoutAlign="center" class="mat-typography">
+        <ng-template #showReminder>
+            <h2>{{ data.title }}</h2>
+            <p class="mat-body-1">{{ data.description }}</p>
+            <br />
+        </ng-template>
+        <div fxLayout="column" *ngIf="reminderEdit; else showReminder">
+            <md-input-container color="primary">
+                <input type="text" mdInput placeholder="Title" [value]="data.title">
+            </md-input-container>
+            <md-input-container color="primary">
+                <textarea type="text" rows="5" mdInput placeholder="Description">{{ data.description }}</textarea>
+            </md-input-container>
+        </div>
     </div>
-</div>
+</md-dialog-content>

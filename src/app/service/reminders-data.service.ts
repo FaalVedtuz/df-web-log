@@ -29,9 +29,22 @@ export class RemindersDataService {
   }
 
   public getDescription() {
-    for ( let i = 0; i < this.reminders.length; i++) {
-      this.descriptions[i] = this.reminders[i].description;
-    }
+    this.descriptions = this.reminders.map(reminder => {
+      return reminder.description;
+    });
     return this.descriptions;
+  }
+
+  public addReminder(title: string, description: string) {
+    this.reminders.push({ title, description });
+  }
+
+  public saveReminder(title: string, description: string) {
+    this.reminders.push({ title, description });
+  }
+
+
+  public deleteReminder(reminderIndex: number) {
+    this.reminders.splice(reminderIndex, 1);
   }
 }

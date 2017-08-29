@@ -1,14 +1,13 @@
-.note-content {
-    margin-top: 20px;
-}
-
-.note-content:hover {
-    transition: all 0.3s ease-in;
-    background-color: #dfe0e2;
+.content-wrapper:hover {
     cursor: pointer;
 }
 
 .reminder-toolbar {
     background-color: #101a5a;
     color: white;
+}
+
+.delete-button:hover {
+    color: #dc2f2f;
+    transition: all 0.3s ease;
 }
