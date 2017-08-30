@@ -2,7 +2,7 @@ import { RemindersDataService } from './service/reminders-data.service';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule, Routes } from '@angular/router';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpModule } from '@angular/http';
 
 /* Angular Material imports */
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -23,6 +23,8 @@ import { ReminderComponent } from './components/reminder/reminder.component';
 import { ReminderMainComponent } from './components/reminder-main/reminder-main.component';
 import { ReminderDialogComponent } from './dialog/reminder-dialog/reminder-dialog.component';
 import { CreateReminderDialogComponent } from './dialog/create-reminder-dialog/create-reminder-dialog.component';
+import { TaskComponent } from './components/task/task.component';
+import { TaskService } from './service/task.service';
 
 
 const navigationRoutes: Routes = [
@@ -37,6 +39,10 @@ const navigationRoutes: Routes = [
   {
     path: 'reminder-main',
     component: ReminderMainComponent
+  },
+  {
+    path: 'task',
+    component: TaskComponent
   },
   {
     path: '',
@@ -60,14 +66,15 @@ const navigationRoutes: Routes = [
     ReminderComponent,
     ReminderMainComponent,
     ReminderDialogComponent,
-    CreateReminderDialogComponent
+    CreateReminderDialogComponent,
+    TaskComponent
   ],
   imports: [
     RouterModule.forRoot(
       navigationRoutes,
     ),
     BrowserModule,
-    HttpClientModule,
+    HttpModule,
     BrowserAnimationsModule,
     FlexLayoutModule,
     MdCardModule,
@@ -83,7 +90,7 @@ const navigationRoutes: Routes = [
     ReminderDialogComponent,
     CreateReminderDialogComponent
   ],
-  providers: [RemindersDataService],
+  providers: [RemindersDataService, TaskService],
   bootstrap: [AppComponent]
 })
 export class PizzaPartyAppModule { }
