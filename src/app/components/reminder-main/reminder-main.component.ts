@@ -1,3 +1,4 @@
+import { ReminderModel } from './../../models/reminder.model';
 import { CreateReminderDialogComponent } from './../../dialog/create-reminder-dialog/create-reminder-dialog.component';
 
 import { Component, OnInit, Input } from '@angular/core';
@@ -6,10 +7,6 @@ import { MdDialog } from '@angular/material';
 import { RemindersDataService } from './../../service/reminders-data.service';
 import { ReminderDialogComponent } from './../../dialog/reminder-dialog/reminder-dialog.component';
 
-export class Reminders {
-  title: string;
-  description: string;
-}
 
 @Component({
   selector: 'app-reminder-main',
@@ -19,7 +16,7 @@ export class Reminders {
 
 export class ReminderMainComponent implements OnInit {
 
-  reminders: any[];
+  reminders: ReminderModel[];
   reminderDetail: any[];
   reminderIndex: number;
 
@@ -27,27 +24,28 @@ export class ReminderMainComponent implements OnInit {
     public dialog: MdDialog) { }
 
   ngOnInit() {
-    this.reminders = this.reminderData.reminders;
+    this.reminderData.fetchReminder()
+    .subscribe( reminders => this.reminders = reminders );
   }
 
   openDialog(reminderIndex) {
     const dialogRef = this.dialog.open(ReminderDialogComponent, {
-      data: this.reminders[reminderIndex],
-      height: '320px',
-      width: '600px',
-      disableClose: true
-    });
-  }
-
-  createReminderDialog() {
-    const createDialogRef = this.dialog.open(CreateReminderDialogComponent, {
+      data: [this.reminders[reminderIndex], reminderIndex],
       height: '360px',
       width: '600px',
       disableClose: true
     });
   }
 
-  deleteReminder(reminderIndex: number) {
-    this.reminderData.deleteReminder(reminderIndex);
-  }
+  // createReminderDialog() {
+  //   const createDialogRef = this.dialog.open(CreateReminderDialogComponent, {
+  //     height: '360px',
+  //     width: '600px',
+  //     disableClose: true
+  //   });
+  // }
+
+  // deleteReminder(reminderIndex: number) {
+  //   this.reminderData.deleteReminder(reminderIndex);
+  // }
 }

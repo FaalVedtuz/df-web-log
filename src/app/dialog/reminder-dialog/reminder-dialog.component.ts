@@ -1,3 +1,4 @@
+import { RemindersDataService } from './../../service/reminders-data.service';
 import { Inject } from '@angular/core';
 import { MdDialogRef, MD_DIALOG_DATA } from '@angular/material';
 import { Component, OnInit } from '@angular/core';
@@ -12,7 +13,8 @@ export class ReminderDialogComponent implements OnInit {
 
   reminderEdit: Boolean;
   constructor(public dialogRef: MdDialogRef<ReminderDialogComponent>,
-              @Inject(MD_DIALOG_DATA) public data: string ) { }
+              @Inject(MD_DIALOG_DATA) public data: string[],
+             private reminderService: RemindersDataService) { }
 
   ngOnInit() {
     this.reminderEdit = false;
@@ -24,5 +26,9 @@ export class ReminderDialogComponent implements OnInit {
 
   editReminder() {
     this.reminderEdit = true;
+  }
+
+  saveReminder() {
+    this.reminderService.saveReminder(this.data);
   }
 }

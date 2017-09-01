@@ -1,3 +1,24 @@
+<md-toolbar class="task-toolbar">
+    <span fxFlex="1 1 auto">TASKS</span>
+    <button md-button>NEW</button>
+</md-toolbar>
+<md-card>
+    <md-card-content>
+        <div class="content-wrapper" fxLayout="row" fxLayoutAlign="center center">
+            <md-card fxFlex="1 1 auto" class="note-content mat-elevation-z0">
+                <md-card-content *ngFor="let task of tasks">
+
+                    <p>{{ task.name }}</p>
+                    <p>{{ task.description }}</p>
+
+
+                </md-card-content>
+            </md-card>
+            <button fxFlexAlign="center" md-icon-button><md-icon class="delete-button">delete</md-icon></button>
+        </div>
+    </md-card-content>
+</md-card>
+
 <p>Test for API</p>
-<button md-button (click)="getAPI()">GET</button>
+<button md-button (click)="doTask()">GET</button>
 <button md-button (click)="putData()">PUT</button>

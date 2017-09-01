@@ -4,6 +4,13 @@
     align-items: flex-end;
 }
 
+.form-wrapper md-form-field {
+    width: 100%;
+}
+
+.reminder-edit-button,
+.reminder-save-button {}
+
 textarea {
     resize: none;
 }

@@ -1,27 +1,34 @@
-<div fxLayout="row">
-    <div class="reminder-menu" fxLayoutAlign="start start" fxFlex="1 1 auto">
-        <button md-icon-button (click)="editReminder()"><md-icon>edit</md-icon></button>
-    </div>
-    <div class="reminder-buttons" fxLayoutGap="10px">
-        <button *ngIf="reminderEdit" md-button>SAVE</button>
-        <button md-icon-button (click)="closeDialog()"><md-icon>close</md-icon></button>
-    </div>
+<div fxLayout="row" fxLayoutAlign="end start">
+    <button md-icon-button (click)="closeDialog()"><md-icon>close</md-icon></button>
 </div>
 <br />
 <md-dialog-content>
     <div fxLayout="column" fxLayoutAlign="center" class="mat-typography">
         <ng-template #showReminder>
-            <h2>{{ data.title }}</h2>
-            <p class="mat-body-1">{{ data.description }}</p>
+            <h2>{{ data[0].title }}</h2>
+            <p class="mat-body-1">{{ data[0].description }}</p>
             <br />
+
         </ng-template>
         <div fxLayout="column" *ngIf="reminderEdit; else showReminder">
-            <md-input-container color="primary">
-                <input type="text" mdInput placeholder="Title" [value]="data.title">
-            </md-input-container>
-            <md-input-container color="primary">
-                <textarea type="text" rows="5" mdInput placeholder="Description">{{ data.description }}</textarea>
-            </md-input-container>
+            <form fxLayout="column" class="form-wrapper">
+                <md-form-field color="primary">
+                    <input type="text" mdInput placeholder="Title" [value]="data[0].title">
+                </md-form-field>
+                <md-form-field color="primary">
+                    <textarea type="text" rows="5" mdInput placeholder="Description">{{ data[0].description }}</textarea>
+                </md-form-field>
+            </form>
+
         </div>
+
     </div>
 </md-dialog-content>
+<div fxLayout="row" fxLayoutAlign="end end">
+    <div *ngIf="!reminderEdit" class="reminder-edit-button">
+        <button md-fab (click)="editReminder()"><md-icon class="md-24">edit</md-icon></button>
+    </div>
+    <div *ngIf="reminderEdit" class="reminder-save-button">
+        <button md-fab (click)="saveReminder()"><md-icon class="md-24">save</md-icon></button>
+    </div>
+</div>

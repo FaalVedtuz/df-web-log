@@ -1,13 +1,14 @@
+import { HttpModule } from '@angular/http';
+import { HttpClientModule } from '@angular/common/http';
 import { RemindersDataService } from './service/reminders-data.service';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule, Routes } from '@angular/router';
-import { HttpModule } from '@angular/http';
 
 /* Angular Material imports */
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MdCardModule, MdInputModule, MdButtonModule, MdMenuModule, MdSidenavModule, MdIconModule } from '@angular/material';
-import { MdToolbarModule, MdDialogModule } from '@angular/material';
+import { MdToolbarModule, MdDialogModule, MdTableModule } from '@angular/material';
 /* ---------------------------*/
 
 /* flex layout module imports */
@@ -25,7 +26,6 @@ import { ReminderDialogComponent } from './dialog/reminder-dialog/reminder-dialo
 import { CreateReminderDialogComponent } from './dialog/create-reminder-dialog/create-reminder-dialog.component';
 import { TaskComponent } from './components/task/task.component';
 import { TaskService } from './service/task.service';
-
 
 const navigationRoutes: Routes = [
   {
@@ -74,6 +74,7 @@ const navigationRoutes: Routes = [
       navigationRoutes,
     ),
     BrowserModule,
+    HttpClientModule,
     HttpModule,
     BrowserAnimationsModule,
     FlexLayoutModule,
@@ -84,7 +85,8 @@ const navigationRoutes: Routes = [
     MdSidenavModule,
     MdIconModule,
     MdToolbarModule,
-    MdDialogModule
+    MdDialogModule,
+    MdTableModule
   ],
   entryComponents: [
     ReminderDialogComponent,
