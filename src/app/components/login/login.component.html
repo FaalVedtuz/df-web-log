@@ -2,15 +2,15 @@
     <md-card fxLayout="column" fxLayout.xs="column" fxLayout.md="column" fxLayoutAlign>
         <md-card-title fxFlex="100%">Login</md-card-title>
         <md-card-content fxFlex="100%">
-            <form (submit)="checkUser(username.value, password.value)" class="login-form-container">
-                <md-input-container class="input-username">
-                    <input required mdInput placeholder="User name" #username>
-                </md-input-container>
+            <form class="login-form-container">
+                <md-form-field class="input-username">
+                    <input #username required mdInput placeholder="User name">
+                </md-form-field>
                 <br />
-                <md-input-container class="input-password ">
-                    <input required mdInput placeholder="Password " type="password" #password>
-                </md-input-container>
-                <button class="button-login" fxFlexFill color="primary" md-raised-button type="submit">LOGIN</button>
+                <md-form-field class="input-password ">
+                    <input #password required mdInput placeholder="Password " type="password">
+                </md-form-field>
+                <button (click)="checkUser(username.value)" class="button-login" fxFlexFill color="primary" md-raised-button type="submit">LOGIN</button>
             </form>
         </md-card-content>
     </md-card>

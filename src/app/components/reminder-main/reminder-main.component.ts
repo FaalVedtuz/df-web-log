@@ -1,3 +1,4 @@
+import { Observable } from 'rxjs/Observable';
 import { ReminderModel } from './../../models/reminder.model';
 import { CreateReminderDialogComponent } from './../../dialog/create-reminder-dialog/create-reminder-dialog.component';
 
@@ -17,14 +18,13 @@ import { ReminderDialogComponent } from './../../dialog/reminder-dialog/reminder
 export class ReminderMainComponent implements OnInit {
 
   reminders: ReminderModel[];
-  reminderDetail: any[];
   reminderIndex: number;
 
   constructor(private reminderData: RemindersDataService,
     public dialog: MdDialog) { }
 
   ngOnInit() {
-    this.reminderData.fetchReminder()
+    return this.reminderData.fetchReminder()
     .subscribe( reminders => this.reminders = reminders );
   }
 
@@ -35,6 +35,9 @@ export class ReminderMainComponent implements OnInit {
       width: '600px',
       disableClose: true
     });
+
+    dialogRef.afterClosed()
+      .subscribe(response => { console.log(response); this.reminders = response; });
   }
 
   // createReminderDialog() {

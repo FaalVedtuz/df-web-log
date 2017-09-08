@@ -1,9 +1,11 @@
+import { UsersService } from './service/users.service';
 import { HttpModule } from '@angular/http';
 import { HttpClientModule } from '@angular/common/http';
 import { RemindersDataService } from './service/reminders-data.service';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule, Routes } from '@angular/router';
+import { FormsModule } from '@angular/forms';
 
 /* Angular Material imports */
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -26,6 +28,7 @@ import { ReminderDialogComponent } from './dialog/reminder-dialog/reminder-dialo
 import { CreateReminderDialogComponent } from './dialog/create-reminder-dialog/create-reminder-dialog.component';
 import { TaskComponent } from './components/task/task.component';
 import { TaskService } from './service/task.service';
+import { RemindersComponent } from './components/reminders/reminders.component';
 
 const navigationRoutes: Routes = [
   {
@@ -37,8 +40,8 @@ const navigationRoutes: Routes = [
     component: DashboardComponent
   },
   {
-    path: 'reminder-main',
-    component: ReminderMainComponent
+    path: 'reminders',
+    component: RemindersComponent
   },
   {
     path: 'task',
@@ -67,7 +70,8 @@ const navigationRoutes: Routes = [
     ReminderMainComponent,
     ReminderDialogComponent,
     CreateReminderDialogComponent,
-    TaskComponent
+    TaskComponent,
+    RemindersComponent
   ],
   imports: [
     RouterModule.forRoot(
@@ -76,6 +80,7 @@ const navigationRoutes: Routes = [
     BrowserModule,
     HttpClientModule,
     HttpModule,
+    FormsModule,
     BrowserAnimationsModule,
     FlexLayoutModule,
     MdCardModule,
@@ -92,7 +97,7 @@ const navigationRoutes: Routes = [
     ReminderDialogComponent,
     CreateReminderDialogComponent
   ],
-  providers: [RemindersDataService, TaskService],
+  providers: [RemindersDataService, TaskService, UsersService],
   bootstrap: [AppComponent]
 })
 export class PizzaPartyAppModule { }

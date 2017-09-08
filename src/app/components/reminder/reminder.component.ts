@@ -1,7 +1,7 @@
 
 import { Component, OnInit, Input } from '@angular/core';
 
-import { ReminderMainComponent, Reminders } from './../reminder-main/reminder-main.component';
+import { ReminderMainComponent } from './../reminder-main/reminder-main.component';
 import { RemindersDataService } from './../../service/reminders-data.service';
 
 @Component({
@@ -15,7 +15,8 @@ export class ReminderComponent implements OnInit {
   constructor(private reminderService: RemindersDataService) { }
 
   ngOnInit() {
-    this.remindersTitle = this.reminderService.reminders;
+    this.reminderService.fetchReminder()
+      .subscribe( reminders => this.remindersTitle = reminders);
   }
 
 }

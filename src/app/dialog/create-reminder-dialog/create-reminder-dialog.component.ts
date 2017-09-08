@@ -15,16 +15,17 @@ export class CreateReminderDialogComponent implements OnInit {
   private http: HttpClient, private reminderService: RemindersDataService) { }
 
   ngOnInit() {
-    this.reminderData = this.reminderService.reminders;
-    console.log(this.reminderData);
+
   }
 
   closeDialog() {
     this.createDialogRef.close();
   }
 
-  saveReminder(title: string , description: string) {
-    this.reminderService.addReminder(title, description);
-    this.createDialogRef.close();
-  }
+  // saveReminder(title: string , description: string) {
+  //   const reminder = { 'reminders': [ {'title': `${title}` , 'description': `${description}` }] };
+  //   this.reminderService.addReminder(reminder)
+  //     .subscribe( res => { this.reminderService.fetchReminder(); return true; });
+  //   this.createDialogRef.close();
+  // }
 }

@@ -1,3 +1,6 @@
+import { Observable } from 'rxjs/Observable';
+import { UserModel } from './../../models/user.model';
+import { UsersService } from './../../service/users.service';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 
@@ -8,23 +11,15 @@ import { FormControl, Validators } from '@angular/forms';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  user: string;
-  password: string;
+  users: object;
 
-  constructor() { }
+  constructor(private user: UsersService) { }
 
   ngOnInit() {
-    this.user = 'Jayson';
-    this.password = 'angular';
+    this.user.fetchUsers()
+      .subscribe( res =>  this.users = res);
   }
 
-  checkUser(userValue: string, passwordValue: string) {
-        if (this.user === userValue && this.password === passwordValue){
-      alert('Its a match');
-    }else {
-      alert('Wrong Username/password');
-    }
-    return false;
+  checkUser(username: string) {
   }
-
 }

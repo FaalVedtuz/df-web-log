@@ -5,21 +5,19 @@
 <md-dialog-content>
     <div fxLayout="column" fxLayoutAlign="center" class="mat-typography">
         <ng-template #showReminder>
-            <h2>{{ data[0].title }}</h2>
-            <p class="mat-body-1">{{ data[0].description }}</p>
+            <h2>{{reminderTitle}}</h2>
+            <p class="mat-body-1">{{reminderDesc}}</p>
             <br />
-
         </ng-template>
         <div fxLayout="column" *ngIf="reminderEdit; else showReminder">
             <form fxLayout="column" class="form-wrapper">
                 <md-form-field color="primary">
-                    <input type="text" mdInput placeholder="Title" [value]="data[0].title">
+                    <input [(ngModel)]="reminderTitle" name="reminderTitle" mdInput placeholder="Title">
                 </md-form-field>
                 <md-form-field color="primary">
-                    <textarea type="text" rows="5" mdInput placeholder="Description">{{ data[0].description }}</textarea>
+                    <textarea [(ngModel)]="reminderDesc" name="reminderDesc" rows="5" mdInput placeholder="Description"></textarea>
                 </md-form-field>
             </form>
-
         </div>
 
     </div>
@@ -29,6 +27,6 @@
         <button md-fab (click)="editReminder()"><md-icon class="md-24">edit</md-icon></button>
     </div>
     <div *ngIf="reminderEdit" class="reminder-save-button">
-        <button md-fab (click)="saveReminder()"><md-icon class="md-24">save</md-icon></button>
+        <button md-fab (click)="updateReminder(reminderTitle, reminderDesc)"><md-icon class="md-24">save</md-icon></button>
     </div>
 </div>

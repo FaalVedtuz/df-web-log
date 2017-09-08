@@ -1,0 +1,19 @@
+<md-toolbar class="reminder-toolbar">
+    <span fxFlex="1 1 auto">Reminders</span>
+    <button md-button (click)="createReminderDialog()">NEW</button>
+</md-toolbar>
+<md-card>
+    <md-card-content>
+        <div class="content-wrapper" *ngFor="let reminder of remindersData$; let reminderIndex = index" fxLayout="row" fxLayoutAlign="center center">
+            <md-card fxFlex="1 1 auto" (click)="openReminderDialog(reminderIndex)" class="note-content mat-elevation-z0">
+                <md-card-title>
+                    {{ reminder.title }}
+                </md-card-title>
+                <md-card-content>
+                    <p>{{ reminder.description }}</p>
+                </md-card-content>
+            </md-card>
+            <button fxFlexAlign="center" md-icon-button (click)="deleteReminder(reminderIndex)"><md-icon class="delete-button">delete</md-icon></button>
+        </div>
+    </md-card-content>
+</md-card>
