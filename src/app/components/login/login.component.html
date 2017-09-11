@@ -10,7 +10,7 @@
                 <md-form-field class="input-password ">
                     <input #password required mdInput placeholder="Password " type="password">
                 </md-form-field>
-                <button (click)="checkUser(username.value)" class="button-login" fxFlexFill color="primary" md-raised-button type="submit">LOGIN</button>
+                <button (click)="checkUser(username.value, password.value)" class="button-login" fxFlexFill color="primary" md-raised-button type="submit">LOGIN</button>
             </form>
         </md-card-content>
     </md-card>

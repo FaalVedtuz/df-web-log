@@ -16,7 +16,7 @@ export class UsersService {
     const userURL = `${_apiRoot}/api/jsonBlob/45a1bc88-94b8-11e7-80fd-cd9bc3c6880d`;
 
     return this.userHttp.get(userURL)
-        .map( res => res );
+        .map( res => res as string[] );
   }
 
 }
