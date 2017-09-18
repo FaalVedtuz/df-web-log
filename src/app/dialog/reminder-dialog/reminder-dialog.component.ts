@@ -15,6 +15,7 @@ import { RemindersDataService } from './../../service/reminders-data.service';
 export class ReminderDialogComponent implements OnInit {
   reminderTitle: string;
   reminderDesc: string;
+  reminderId: string;
 
   reminderEdit: Boolean;
   constructor(public dialogRef: MdDialogRef<ReminderDialogComponent>,
@@ -23,8 +24,9 @@ export class ReminderDialogComponent implements OnInit {
 
   ngOnInit() {
     this.reminderEdit = false;
-    this.reminderTitle = this.remindersData.title;
-    this.reminderDesc = this.remindersData.description;
+    this.reminderId = this.remindersData['reminder_id'];
+    this.reminderTitle = this.remindersData['reminder_title'];
+    this.reminderDesc = this.remindersData['reminder_desc'];
   }
 
   closeDialog() {
@@ -36,7 +38,7 @@ export class ReminderDialogComponent implements OnInit {
   }
 
   updateReminder( title: string, desc: string) {
-    this.reminderService.saveReminder( title, desc)
+    this.reminderService.saveReminder( this.reminderId, title, desc)
       .subscribe( res => res );
   }
 }

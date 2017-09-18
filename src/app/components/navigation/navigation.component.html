@@ -4,7 +4,7 @@
     <span><button md-button routerLink="/task" routerLinkActive="active">TASKS</button></span>
     <span><button md-button routerLink="/reminders" routerLinkActive="active">REMINDERS</button></span>
     <div class="nav-link-wrapper">
-        <span><a class="user-account" [mdMenuTriggerFor]="userMenu" md-button routerLink="/dashboard"><md-icon>account_circle</md-icon> RONDINA </a></span>
+        <span><a class="user-account" [mdMenuTriggerFor]="userMenu" md-button><md-icon>account_circle</md-icon> RONDINA </a></span>
         <md-menu #userMenu="mdMenu">
             <button md-menu-item>Settings</button>
             <button md-menu-item>Logout</button>

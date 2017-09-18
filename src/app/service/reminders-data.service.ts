@@ -7,8 +7,7 @@ import { ReminderMainComponent } from './../components/reminder-main/reminder-ma
 import { RequestOptions } from '@angular/http/';
 import { HttpHeaders } from '@angular/common/http';
 
-const apiURL = 'https://jsonblob.com/';
-const jsonID = '860d9725-93e9-11e7-80fd-772fc00b2271';
+const apiURL = 'http://localhost:8000/';
 
 @Injectable()
 export class RemindersDataService {
@@ -18,10 +17,10 @@ export class RemindersDataService {
   constructor( private reminderHttp: HttpClient) { }
 
   public fetchReminder(): Observable<ReminderModel[]> {
-    const getReminderURL = `${apiURL}api/jsonBlob/${jsonID}`;
+    const getReminderURL = `${apiURL}api/reminders`;
     return this.reminderHttp
       .get<ReminderModel[]>(getReminderURL)
-        .map( reminder => reminder['reminders'] );
+        .map( reminder => reminder );
   }
 
   // public addReminder(reminder) {
@@ -33,10 +32,10 @@ export class RemindersDataService {
   //     });
   // }
 
-  public saveReminder(reminderTitle: string, reminderDescription: string) {
-    const getReminderURL = `${apiURL}api/jsonBlob/${jsonID}`;
-    const body = { 'title': reminderTitle, 'description': reminderDescription };
+  public saveReminder(reminder_id, reminderTitle: string, reminderDescription: string) {
+    const getReminderURL = `${apiURL}api/reminders/${reminder_id}`;
+    const body = { 'reminder_title': reminderTitle, 'reminder_desc': reminderDescription };
       return this.reminderHttp
-        .put(getReminderURL, JSON.stringify(body));
+        .put(getReminderURL, body);
   }
 }
