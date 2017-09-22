@@ -1,25 +1,23 @@
 import { Observable } from 'rxjs/Observable';
 import { ReminderModel } from './../models/reminder.model';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 import { ReminderMainComponent } from './../components/reminder-main/reminder-main.component';
 import { RequestOptions } from '@angular/http/';
 import { HttpHeaders } from '@angular/common/http';
 
-const apiURL = 'http://localhost:8000/';
+const apiURL = 'http://localhost:8000/api/reminders';
 
 @Injectable()
 export class RemindersDataService {
 
-  reminder: ReminderModel[];
 
   constructor( private reminderHttp: HttpClient) { }
 
   public fetchReminder(): Observable<ReminderModel[]> {
-    const getReminderURL = `${apiURL}api/reminders`;
     return this.reminderHttp
-      .get<ReminderModel[]>(getReminderURL)
+      .get<ReminderModel[]>(apiURL)
         .map( reminder => reminder );
   }
 
@@ -33,9 +31,15 @@ export class RemindersDataService {
   // }
 
   public saveReminder(reminder_id, reminderTitle: string, reminderDescription: string) {
-    const getReminderURL = `${apiURL}api/reminders/${reminder_id}`;
+    const getReminderById = `${apiURL}/${reminder_id}`;
     const body = { 'reminder_title': reminderTitle, 'reminder_desc': reminderDescription };
       return this.reminderHttp
-        .put(getReminderURL, body);
+        .put(getReminderById, body);
+  }
+
+  public deleteReminder(reminder_id: string) {
+    const deleteReminderById = `${apiURL}/${reminder_id}`;
+    return this.reminderHttp
+      .delete(deleteReminderById);
   }
 }

@@ -13,16 +13,22 @@ import { RemindersDataService } from './../../service/reminders-data.service';
   templateUrl: './reminders.component.html',
   styleUrls: ['./reminders.component.css']
 })
+
 export class RemindersComponent implements OnInit {
+
   remindersData$: Array<ReminderModel>;
 
   constructor( public reminderService: RemindersDataService,
   public reminderDialog: MdDialog ) { }
 
   ngOnInit() {
-  //  this.remindersData$ = this.reminderService.fetchReminder();
   return this.reminderService.fetchReminder()
     .subscribe( response => this.remindersData$ = response );
+
+  }
+
+  trackReminders(index: number, reminder: ReminderModel): number {
+    return reminder.id;
   }
 
   openReminderDialog(reminderIndex) {
@@ -40,6 +46,17 @@ export class RemindersComponent implements OnInit {
       width: '600px',
       disableClose: true
     });
+  }
+
+
+  deleteReminder(reminder_index: number, reminderId: string) {
+
+    this.reminderService.deleteReminder(reminderId)
+      .subscribe();
+
+    this.remindersData$.splice(reminder_index, 1);
+
+
   }
 
 }

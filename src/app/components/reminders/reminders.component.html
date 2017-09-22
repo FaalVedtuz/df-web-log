@@ -4,7 +4,7 @@
 </md-toolbar>
 <md-card>
     <md-card-content>
-        <div class="content-wrapper" *ngFor="let reminder of remindersData$; let reminderIndex = index" fxLayout="row" fxLayoutAlign="center center">
+        <div class="content-wrapper" *ngFor="let reminder of remindersData$; trackBy: trackReminders; let reminderIndex = index" fxLayout="row" fxLayoutAlign="center center">
             <md-card fxFlex="1 1 auto" (click)="openReminderDialog(reminderIndex)" class="note-content mat-elevation-z0">
                 <md-card-title>
                     {{ reminder.reminder_title }}
@@ -13,7 +13,7 @@
                     <p>{{ reminder.reminder_desc }}</p>
                 </md-card-content>
             </md-card>
-            <button fxFlexAlign="center" md-icon-button (click)="deleteReminder(reminderIndex)"><md-icon class="delete-button">delete</md-icon></button>
+            <button fxFlexAlign="center" md-icon-button (click)="deleteReminder(reminderIndex, reminder.reminder_id)"><md-icon class="delete-button">delete</md-icon></button>
         </div>
     </md-card-content>
 </md-card>

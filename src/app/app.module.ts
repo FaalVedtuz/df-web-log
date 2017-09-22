@@ -29,6 +29,7 @@ import { CreateReminderDialogComponent } from './dialog/create-reminder-dialog/c
 import { TaskComponent } from './components/task/task.component';
 import { TaskService } from './service/task.service';
 import { RemindersComponent } from './components/reminders/reminders.component';
+import { RegisterComponent } from './components/register/register.component';
 
 const navigationRoutes: Routes = [
   {
@@ -46,6 +47,10 @@ const navigationRoutes: Routes = [
   {
     path: 'task',
     component: TaskComponent
+  },
+  {
+    path: 'register',
+    component: RegisterComponent
   },
   {
     path: '',
@@ -71,7 +76,8 @@ const navigationRoutes: Routes = [
     ReminderDialogComponent,
     CreateReminderDialogComponent,
     TaskComponent,
-    RemindersComponent
+    RemindersComponent,
+    RegisterComponent
   ],
   imports: [
     RouterModule.forRoot(

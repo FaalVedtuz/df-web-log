@@ -1,0 +1,20 @@
+<div class="login-card-container">
+    <md-card fxLayout="column" fxLayout.xs="column" fxLayout.md="column" fxLayoutAlign>
+        <md-card-title fxFlex="100%">Register</md-card-title>
+        <md-card-content fxFlex="100%">
+            <form class="login-form-container">
+                <md-form-field class="input-username">
+                    <input #username required mdInput placeholder="username">
+                </md-form-field>
+                <md-form-field class="input-email">
+                    <input #email required mdInput placeholder="email">
+                </md-form-field>
+                <br />
+                <md-form-field class="input-password ">
+                    <input #password required mdInput placeholder="password " type="password">
+                </md-form-field>
+                <button (click)="registerUser(email.value, username.value, password.value)" class="button-login" fxFlexFill color="primary" md-raised-button type="submit">REGISTER</button>
+            </form>
+        </md-card-content>
+    </md-card>
+</div>
